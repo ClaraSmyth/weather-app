@@ -1,0 +1,11 @@
+@use '_reset';
+
+body {
+    aspect-ratio: 900/600;
+    width: 100%;
+    background: url('../assets/stacked-waves-haikei.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: #cabbdf;
+}
