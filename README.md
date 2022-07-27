@@ -21,7 +21,7 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 ## Built Using
 
 -   HTML5 <img src="./readme-assets/html5.svg">
--   CSS3 <img src="./readme-assets/css3.svg">
+-   SASS <img src="./readme-assets/sass.svg">
 -   JavaScript <img src="./readme-assets/javascript.svg">
 -   Webpack <img src="./readme-assets/webpack.svg">
 
