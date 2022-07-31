@@ -31,6 +31,26 @@ body {
     }
 
     &-search {
+        display: flex;
+        align-items: center;
         grid-column: span 2;
+        outline: 2px solid white;
+        border-radius: 100vmax;
+    }
+
+    &-search-input {
+        border: none;
+        background: none;
+        padding: 0 1rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &-search-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
     }
 }
