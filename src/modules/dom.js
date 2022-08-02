@@ -22,4 +22,13 @@ const renderInfo = (country) => {
     icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@2x.png`;
 };
 
-export default renderInfo;
+const renderError = (error) => {
+    const errorDiv = document.querySelector('.card-error');
+    const errorText = document.querySelector('.card-error-text');
+
+    errorText.innerText = error;
+    errorDiv.classList.add('is-active');
+    setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
+};
+
+export { renderInfo, renderError };
