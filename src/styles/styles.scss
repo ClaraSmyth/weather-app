@@ -1,5 +1,5 @@
 @use '_reset';
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 body {
     aspect-ratio: 900/600;
@@ -9,7 +9,7 @@ body {
     background-position: center;
     background-size: cover;
     background-color: #cabbdf;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .main {
@@ -75,6 +75,11 @@ body {
         padding: 0 0.5rem;
         cursor: pointer;
         border-radius: 100vmax;
+
+        & svg {
+            min-width: 24px;
+            min-height: 24px;
+        }
     }
 
     &-units {
