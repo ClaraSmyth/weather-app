@@ -21,6 +21,7 @@ body {
 }
 
 .card {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 100px;
     gap: 1rem;
@@ -127,6 +128,36 @@ body {
         &-checkbox:checked + &-slider:before {
             content: '°F';
             transform: translateX(1.5em);
+        }
+    }
+
+    &-error {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: -2.5rem;
+        width: calc(100% - 2rem);
+        height: 2rem;
+        background-color: white;
+        border-radius: 100vmax;
+        padding: 0 1rem;
+        pointer-events: none;
+        opacity: 0;
+        transform: rotateX(-90deg);
+        transform-style: preserve-3d;
+        transform-origin: 100% 50%;
+        transition: transform 300ms ease-in, opacity 300ms ease-in;
+
+        &.is-active {
+            opacity: 1;
+            transform: rotateX(0);
+        }
+
+        &-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre;
         }
     }
 }
