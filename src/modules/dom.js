@@ -17,7 +17,7 @@ const renderInfo = (country) => {
     day.innerText = currentDay;
     date.innerText = currentDate;
     time.innerText = currentTime;
-    temp.innerText = country.main.temp;
+    temp.innerText = `${Math.round(country.main.temp)}°`;
     desc.innerText = country.weather[0].description;
     icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@2x.png`;
 };
