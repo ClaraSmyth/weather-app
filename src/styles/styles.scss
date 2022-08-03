@@ -9,6 +9,26 @@
     --clr-danger: hsl(0 100% 75%);
 }
 
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 100vmax;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr-primary-accent);
+    border-radius: 100vmax;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--clr-primary-accent);
+    outline: 2px solid var(--clr-primary-accent);
+}
+
 body {
     aspect-ratio: 900/600;
     width: 100%;
@@ -223,7 +243,8 @@ body {
             height: 100%;
             width: 100%;
             background-color: var(--clr-bg-white);
-            overflow-x: scroll;
+            overflow-x: auto;
+            overflow-x: overlay;
         }
 
         &-item {
