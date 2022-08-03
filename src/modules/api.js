@@ -1,4 +1,4 @@
-import { renderInfo, renderError } from './dom';
+import { renderMain, renderError } from './dom';
 
 const getWeather = async (input) => {
     try {
@@ -18,9 +18,15 @@ const getWeather = async (input) => {
         );
         if (!weatherResponse.ok) throw new Error(weatherResponse.statusText);
 
-        const weather = await weatherResponse.json();
+        const extraResponse = await fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&exclude=current,minutely,alerts&appid=81383e7bd599e45d7534726f6e06fab2`
+        );
+        if (!extraResponse.ok) throw new Error(extraResponse.statusText);
 
-        renderInfo(weather);
+        const weather = await weatherResponse.json();
+        const extra = await extraResponse.json();
+
+        renderMain(weather);
     } catch (error) {
         console.error(error.message);
         if (error.message !== 'NOT FOUND') renderError('Sorry, something went wrong!');
