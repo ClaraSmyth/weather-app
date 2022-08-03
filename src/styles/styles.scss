@@ -1,6 +1,14 @@
 @use '_reset';
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
+:root {
+    --clr-bg-light: hsl(0 0% 100% / 0.5);
+    --clr-bg-white: hsl(0 0% 100% / 1);
+
+    --clr-primary-accent: hsl(265 36% 80%);
+    --clr-danger: hsl(0 100% 75%);
+}
+
 body {
     aspect-ratio: 900/600;
     width: 100%;
@@ -8,7 +16,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: #cabbdf;
+    background-color: var(--clr-primary-accent);
     font-family: 'Nunito', sans-serif;
 }
 
@@ -23,10 +31,10 @@ body {
 .card {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 100px;
+    grid-template-columns: 1fr 6.25rem;
     gap: 1rem;
     padding: 1.2rem;
-    background-color: hsl(0 0% 100% / 0.5);
+    background-color: var(--clr-bg-light);
     border-radius: 2rem;
 
     &-container-btns {
@@ -51,16 +59,17 @@ body {
         place-items: center;
         cursor: pointer;
         font-weight: bold;
-        background-color: white;
+        background-color: var(--clr-bg-white);
         padding: 0 0.5rem;
         margin-top: 1rem;
         border: none;
         border-radius: 100vmax;
         height: 2rem;
 
-        &:hover {
-            background-color: #cabbdf;
-            outline: 4px solid white;
+        &:hover,
+        &:focus {
+            background-color: var(--clr-primary-accent);
+            outline: 4px solid var(--clr-bg-white);
             outline-offset: -4px;
         }
     }
@@ -78,7 +87,7 @@ body {
     &-search {
         display: flex;
         align-items: center;
-        background-color: white;
+        background-color: var(--clr-bg-white);
         padding: 0 0.25rem;
         border-radius: 100vmax;
     }
@@ -97,21 +106,20 @@ body {
 
     &-search-btn {
         border: none;
-        background-color: #cabbdf;
+        background-color: var(--clr-primary-accent);
         padding: 0 0.5rem;
         cursor: pointer;
         border-radius: 100vmax;
 
         & svg {
-            min-width: 24px;
-            min-height: 24px;
+            height: 1.5rem;
+            width: 1.5rem;
         }
     }
 
     &-units {
         position: relative;
         display: inline-block;
-        font-size: 16px;
         min-width: 3.5em;
         height: 2em;
 
@@ -128,7 +136,7 @@ body {
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: white;
+            background-color: var(--clr-bg-white);
             transition: 0.4s;
             border-radius: 100vmax;
         }
@@ -145,7 +153,7 @@ body {
             left: 0.25em;
             bottom: 0.25em;
             border-radius: 100vmax;
-            background-color: #cabbdf;
+            background-color: var(--clr-primary-accent);
             transform: translateX(0);
             transition: transform 0.4s;
         }
@@ -164,7 +172,7 @@ body {
         bottom: -2.5rem;
         width: calc(100% - 2rem);
         height: 2rem;
-        background-color: white;
+        background-color: var(--clr-bg-white);
         border-radius: 100vmax;
         padding: 0 1rem;
         pointer-events: none;
@@ -191,7 +199,7 @@ body {
         inset: 1rem;
         display: grid;
         align-items: center;
-        background-color: white;
+        background-color: var(--clr-bg-white);
         border-radius: 1rem;
         padding: 1.5rem 1rem 1rem;
         transform: scale(0);
@@ -214,7 +222,7 @@ body {
             gap: 1rem;
             height: 100%;
             width: 100%;
-            background-color: white;
+            background-color: var(--clr-bg-white);
             overflow-x: scroll;
         }
 
@@ -224,7 +232,7 @@ body {
             flex-direction: column;
             align-items: center;
             height: max-content;
-            background-color: #cabbdf;
+            background-color: var(--clr-primary-accent);
             border-radius: 1rem;
         }
 
@@ -232,6 +240,10 @@ body {
             text-align: center;
             width: 100%;
             margin-bottom: -0.5rem;
+        }
+
+        &-img {
+            width: 6.25rem;
         }
 
         &-temp {
@@ -246,10 +258,20 @@ body {
             cursor: pointer;
             top: 0.5rem;
             right: 0.5rem;
-            background-color: #cabbdf;
             padding: 0;
+            background-color: var(--clr-bg-white);
             border: none;
             border-radius: 50%;
+
+            &:hover,
+            &:focus {
+                background-color: var(--clr-danger);
+            }
+
+            & svg {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
         }
     }
 }
