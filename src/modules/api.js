@@ -19,7 +19,7 @@ const getWeather = async (input) => {
         if (!weatherResponse.ok) throw new Error(weatherResponse.statusText);
 
         const extraResponse = await fetch(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&exclude=current,minutely,alerts&appid=81383e7bd599e45d7534726f6e06fab2`
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${location[0].lat}&lon=${location[0].lon}&exclude=current,minutely,alerts&units=${units}&appid=81383e7bd599e45d7534726f6e06fab2`
         );
         if (!extraResponse.ok) throw new Error(extraResponse.statusText);
 

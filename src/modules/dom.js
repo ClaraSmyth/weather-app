@@ -1,5 +1,19 @@
-import { format } from 'date-fns';
+import { format, fromUnixTime } from 'date-fns';
 import getCountryDate from './convert-date';
+
+const createExtraElements = () => {
+    const div = document.createElement('div');
+    const timePara = document.createElement('p');
+    const img = document.createElement('img');
+    const tempPara = document.createElement('p');
+
+    div.classList.add('card-extra-item');
+    timePara.classList.add('card-extra-time');
+    img.classList.add('card-extra-img');
+    tempPara.classList.add('card-extra-temp');
+
+    return [div, timePara, img, tempPara];
+};
 
 const renderMain = (country) => {
     const location = document.querySelector('.card-location');
@@ -25,6 +39,19 @@ const renderMain = (country) => {
 const renderExtra = (country) => {
     const extraHourly = document.querySelector('.card-extra-hourly');
     const extraDaily = document.querySelector('.card-extra-daily');
+
+    extraHourly.textContent = '';
+
+    country.daily.forEach((day, index) => {
+        const [div, timePara, img, tempPara] = createExtraElements();
+
+        timePara.innerText = format(fromUnixTime(country.hourly[index].dt), 'p');
+        img.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+        tempPara.innerText = `${Math.round(country.hourly[index].temp)}°`;
+
+        div.append(timePara, img, tempPara);
+        extraHourly.append(div);
+    });
 };
 
 const renderError = (error) => {
