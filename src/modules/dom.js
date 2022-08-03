@@ -22,7 +22,7 @@ const createHourlyItem = (country, index) => {
     tempPara.classList.add('card-extra-temp-current');
 
     titlePara.innerText = format(fromUnixTime(country.hourly[index].dt), 'p');
-    img.src = `http://openweathermap.org/img/wn/${country.hourly[index].weather[0].icon}@2x.png`;
+    img.src = `http://openweathermap.org/img/wn/${country.hourly[index].weather[0].icon}@4x.png`;
     tempPara.innerText = `${Math.round(country.hourly[index].temp)}°`;
 
     tempContainer.append(tempPara);
@@ -43,7 +43,7 @@ const createDailyItem = (country, day) => {
     tempContainer.append(maxTempPara, minTempPara);
 
     titlePara.innerText = format(fromUnixTime(day.dt), 'EEE, do');
-    img.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
+    img.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
     maxTempPara.innerText = `${Math.round(day.temp.max)}°`;
     minTempPara.innerText = `${Math.round(day.temp.min)}°`;
 
@@ -72,7 +72,7 @@ const renderMain = (country) => {
     time.innerText = currentTime;
     temp.innerText = `${Math.round(country.main.temp)}°`;
     desc.innerText = country.weather[0].description;
-    icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@2x.png`;
+    icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@4x.png`;
 };
 
 const renderExtra = (country) => {
