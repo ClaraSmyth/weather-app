@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
 :root {
+    --fs-400: 1rem;
+    --fs-600: 1.2rem;
+    --fs-700: 1.5rem;
+
+    --fw-300: 300;
+    --fw-400: 400;
+    --fw-600: 600;
+    --fw-700: 700;
+
     --clr-bg-light: hsl(0 0% 100% / 0.5);
     --clr-bg-white: hsl(0 0% 100% / 1);
 
@@ -52,14 +61,22 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 6.25rem;
+    grid-template-rows: 1fr;
     gap: 1rem;
     padding: 1.2rem;
     background-color: var(--clr-bg-light);
     border-radius: 2rem;
+    min-height: 15.625rem;
+    max-width: 25rem;
+
+    &-container-left {
+        display: grid;
+    }
 
     &-container-btns {
         display: flex;
         gap: 1rem;
+        align-self: end;
     }
 
     &-container-right {
@@ -73,12 +90,16 @@ body {
         grid-column: span 2;
     }
 
+    &-location {
+        font-size: var(--fs-700);
+    }
+
     &-hourly-open,
     &-daily-open {
         display: flex;
         place-items: center;
         cursor: pointer;
-        font-weight: bold;
+        font-weight: var(--fw-700);
         background-color: var(--clr-bg-white);
         padding: 0 0.5rem;
         margin-top: 1rem;
@@ -95,6 +116,8 @@ body {
     }
 
     &-desc {
+        font-size: var(--fs-600);
+        font-weight: var(--fw-600);
         text-transform: capitalize;
     }
 
@@ -102,6 +125,8 @@ body {
         position: absolute;
         top: 0.25rem;
         left: 0.5rem;
+        font-size: var(--fs-600);
+        font-weight: var(--fw-700);
     }
 
     &-search {
@@ -167,7 +192,7 @@ body {
             display: grid;
             place-content: center;
             color: black;
-            font-weight: bold;
+            font-weight: var(--fw-700);
             height: 1.5em;
             width: 1.5em;
             left: 0.25em;
@@ -233,6 +258,7 @@ body {
             position: absolute;
             top: 0.2rem;
             left: 1.5rem;
+            font-size: var(--fs-700);
         }
 
         &-hourly,
@@ -253,14 +279,16 @@ body {
             flex-direction: column;
             align-items: center;
             height: max-content;
+            padding: 0.5rem 0;
             background-color: var(--clr-primary-accent);
             border-radius: 1rem;
         }
 
         &-title {
             text-align: center;
+            font-weight: var(--fw-700);
             width: 100%;
-            margin-bottom: -0.5rem;
+            margin-bottom: -1rem;
         }
 
         &-img {
@@ -271,7 +299,8 @@ body {
             display: flex;
             justify-content: space-around;
             width: 100%;
-            margin-top: -0.5rem;
+            margin-top: -1rem;
+            font-weight: var(--fw-700);
         }
 
         &-close {
