@@ -45,7 +45,8 @@ body {
         grid-column: span 2;
     }
 
-    &-hourly-open {
+    &-hourly-open,
+    &-daily-open {
         display: flex;
         place-items: center;
         cursor: pointer;
