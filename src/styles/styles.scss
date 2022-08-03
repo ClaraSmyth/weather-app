@@ -193,7 +193,7 @@ body {
         align-items: center;
         background-color: white;
         border-radius: 1rem;
-        padding: 1rem;
+        padding: 1.5rem 1rem 1rem;
         transform: scale(0);
         transition: transform 300ms ease-in;
 
@@ -201,7 +201,14 @@ body {
             transform: scale(1);
         }
 
-        &-hourly {
+        &-header {
+            position: absolute;
+            top: 0.2rem;
+            left: 1.5rem;
+        }
+
+        &-hourly,
+        &-daily {
             display: flex;
             place-items: center;
             gap: 1rem;
@@ -221,13 +228,16 @@ body {
             border-radius: 1rem;
         }
 
-        &-time {
+        &-title {
             text-align: center;
             width: 100%;
             margin-bottom: -0.5rem;
         }
 
         &-temp {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
             margin-top: -0.5rem;
         }
 
