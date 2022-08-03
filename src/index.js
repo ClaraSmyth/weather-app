@@ -18,6 +18,26 @@ unitCheckbox.addEventListener('click', () => {
 const openHourly = document.querySelector('.card-hourly-open');
 openHourly.addEventListener('click', () => {
     const extraCard = document.querySelector('.card-extra');
+    const extraCardHourly = document.querySelector('.card-extra-hourly');
+    const extraCardDaily = document.querySelector('.card-extra-daily');
+    const extraCardHeader = document.querySelector('.card-extra-header');
+
+    extraCardHeader.innerText = 'Hourly Weather';
+    extraCardHourly.classList.remove('display-none');
+    extraCardDaily.classList.add('display-none');
+    extraCard.classList.add('is-active');
+});
+
+const openDaily = document.querySelector('.card-daily-open');
+openDaily.addEventListener('click', () => {
+    const extraCard = document.querySelector('.card-extra');
+    const extraCardDaily = document.querySelector('.card-extra-daily');
+    const extraCardHourly = document.querySelector('.card-extra-hourly');
+    const extraCardHeader = document.querySelector('.card-extra-header');
+
+    extraCardHeader.innerText = 'Daily Weather';
+    extraCardDaily.classList.remove('display-none');
+    extraCardHourly.classList.add('display-none');
     extraCard.classList.add('is-active');
 });
 
