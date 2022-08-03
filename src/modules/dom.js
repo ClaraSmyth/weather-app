@@ -1,6 +1,11 @@
 import { format, fromUnixTime } from 'date-fns';
 import getCountryDate from './convert-date';
 
+const loadingAnimation = () => {
+    const animation = document.querySelector('.dot-wave');
+    animation.classList.toggle('display-none');
+};
+
 const createExtraElements = () => {
     const container = document.createElement('div');
     const titlePara = document.createElement('p');
@@ -99,4 +104,4 @@ const renderError = (error) => {
     setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
 };
 
-export { renderMain, renderExtra, renderError };
+export { renderMain, renderExtra, renderError, loadingAnimation };

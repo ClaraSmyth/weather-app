@@ -1,7 +1,8 @@
-import { renderMain, renderError, renderExtra } from './dom';
+import { renderMain, renderError, renderExtra, loadingAnimation } from './dom';
 
 const getWeather = async (input) => {
     try {
+        loadingAnimation();
         const unitCheckbox = document.querySelector('.card-units-checkbox');
         const units = unitCheckbox.checked ? 'imperial' : 'metric';
 
@@ -30,7 +31,9 @@ const getWeather = async (input) => {
 
         renderMain(weather);
         renderExtra(extra);
+        loadingAnimation();
     } catch (error) {
+        loadingAnimation();
         console.error(error.message);
         if (error.message !== 'NOT FOUND') renderError('Sorry, something went wrong!');
         if (error.message === 'NOT FOUND') renderError(`Sorry, we couldn't find ${input}`);
