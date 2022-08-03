@@ -15,4 +15,16 @@ unitCheckbox.addEventListener('click', () => {
     getWeather(currentCity.innerText);
 });
 
+const openHourly = document.querySelector('.card-hourly-open');
+openHourly.addEventListener('click', () => {
+    const extraCard = document.querySelector('.card-extra');
+    extraCard.classList.add('is-active');
+});
+
+const closeExtra = document.querySelector('.card-extra-close');
+closeExtra.addEventListener('click', () => {
+    const extraCard = document.querySelector('.card-extra');
+    extraCard.classList.remove('is-active');
+});
+
 getWeather('London');

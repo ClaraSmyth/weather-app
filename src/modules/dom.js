@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import getCountryDate from './convert-date';
 
-const renderInfo = (country) => {
+const renderMain = (country) => {
     const location = document.querySelector('.card-location');
     const day = document.querySelector('.card-day');
     const date = document.querySelector('.card-date');
@@ -22,6 +22,11 @@ const renderInfo = (country) => {
     icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@2x.png`;
 };
 
+const renderExtra = (country) => {
+    const extraHourly = document.querySelector('.card-extra-hourly');
+    const extraDaily = document.querySelector('.card-extra-daily');
+};
+
 const renderError = (error) => {
     const errorDiv = document.querySelector('.card-error');
     const errorText = document.querySelector('.card-error-text');
@@ -31,4 +36,4 @@ const renderError = (error) => {
     setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
 };
 
-export { renderInfo, renderError };
+export { renderMain, renderExtra, renderError };

@@ -1,4 +1,4 @@
-import { renderMain, renderError } from './dom';
+import { renderMain, renderError, renderExtra } from './dom';
 
 const getWeather = async (input) => {
     try {
@@ -26,7 +26,10 @@ const getWeather = async (input) => {
         const weather = await weatherResponse.json();
         const extra = await extraResponse.json();
 
+        console.log(extra);
+
         renderMain(weather);
+        renderExtra(extra);
     } catch (error) {
         console.error(error.message);
         if (error.message !== 'NOT FOUND') renderError('Sorry, something went wrong!');
