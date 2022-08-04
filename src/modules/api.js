@@ -26,7 +26,7 @@ const getWeather = async (input) => {
         const units = unitCheckbox.checked ? 'imperial' : 'metric';
 
         const inputResponse = await fetch(
-            `http://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=81383e7bd599e45d7534726f6e06fab2`
+            `https://api.openweathermap.org/geo/1.0/direct?q=${input}&limit=5&appid=81383e7bd599e45d7534726f6e06fab2`
         );
         if (!inputResponse.ok) throw new Error(inputResponse.statusText);
 
