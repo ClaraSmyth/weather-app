@@ -60,4 +60,16 @@ saveBtn.addEventListener('click', () => {
     getWeather(location.innerText);
 });
 
+const storageBtn = document.querySelector('.card-saved-btn');
+storageBtn.addEventListener('click', () => {
+    const storedSection = document.querySelector('.stored');
+    const storedItems = document.querySelectorAll('.stored-item');
+
+    storedSection.classList.toggle('is-active');
+
+    storedItems.forEach((item) => {
+        item.classList.toggle('is-active');
+    });
+});
+
 getWeather('London');

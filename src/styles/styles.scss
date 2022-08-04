@@ -100,8 +100,7 @@ body {
         font-weight: var(--fw-700);
     }
 
-    &-hourly-open,
-    &-daily-open {
+    &-btn-open {
         display: flex;
         place-items: center;
         cursor: pointer;
@@ -114,7 +113,7 @@ body {
         height: 2rem;
 
         &:hover,
-        &:focus {
+        &:focus-visible {
             background-color: var(--clr-primary-accent);
             outline: 4px solid var(--clr-bg-white);
             outline-offset: -4px;
@@ -354,6 +353,11 @@ body {
     max-width: 25rem;
     width: 100%;
     padding: 2rem 1.2rem 1.2rem;
+    visibility: collapse;
+
+    &.is-active {
+        visibility: visible;
+    }
 
     &-header {
         position: absolute;
@@ -408,6 +412,80 @@ body {
             left: 0.5rem;
             font-size: var(--fs-400);
             font-weight: var(--fw-700);
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .stored {
+        position: absolute;
+        min-height: 100%;
+        min-width: 100%;
+        z-index: -1;
+        background: none;
+        padding: 1rem;
+
+        &-header {
+            display: none;
+        }
+
+        &-container {
+            position: absolute;
+            inset: 0;
+            padding: 1rem;
+            justify-content: center;
+        }
+
+        &-item {
+            position: absolute;
+            opacity: 0;
+            visibility: collapse;
+            transition: opacity 500ms ease-in, visibility 500ms;
+
+            &:nth-of-type(1) {
+                transform: translateY(-240px);
+                transition-delay: 200ms;
+            }
+
+            &:nth-of-type(2) {
+                transform: rotate(45deg) translateY(-300px) rotate(-45deg);
+                transition-delay: 400ms;
+            }
+
+            &:nth-of-type(3) {
+                transform: translateX(300px);
+                transition-delay: 600ms;
+            }
+
+            &:nth-of-type(4) {
+                transform: rotate(45deg) translateX(300px) rotate(-45deg);
+                transition-delay: 800ms;
+            }
+
+            &:nth-of-type(5) {
+                transform: translateY(250px);
+                transition-delay: 1000ms;
+            }
+
+            &:nth-of-type(6) {
+                transform: rotate(45deg) translateY(300px) rotate(-45deg);
+                transition-delay: 1200ms;
+            }
+
+            &:nth-of-type(7) {
+                transform: translateX(-300px);
+                transition-delay: 1400ms;
+            }
+
+            &:nth-of-type(8) {
+                transform: rotate(45deg) translateX(-300px) rotate(-45deg);
+                transition-delay: 1600ms;
+            }
+
+            &.is-active {
+                visibility: visible;
+                opacity: 1;
+            }
         }
     }
 }
