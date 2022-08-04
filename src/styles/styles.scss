@@ -358,17 +358,23 @@ body {
 
     &-item {
         position: relative;
+        display: grid;
+        place-content: center;
         flex-shrink: 0;
-        height: max-content;
         text-align: center;
         padding: 0.5rem;
         background-color: var(--clr-bg-white);
         border-radius: 1rem;
+        width: 7.5rem;
+        height: 8.75rem;
 
         &-title {
             font-size: var(--fs-600);
             font-weight: var(--fw-700);
             margin-bottom: -1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre;
         }
 
         &-img {
