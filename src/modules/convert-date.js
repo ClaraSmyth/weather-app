@@ -1,15 +1,13 @@
 import { fromUnixTime, getUnixTime } from 'date-fns';
 
-export default function getCountryDate(timezone) {
-    const date = new Date();
-
+export default function convertDate(dateObj, timezone) {
     const utcDate = new Date(
-        date.getUTCFullYear(),
-        date.getUTCMonth(),
-        date.getUTCDate(),
-        date.getUTCHours(),
-        date.getUTCMinutes(),
-        date.getUTCSeconds()
+        dateObj.getUTCFullYear(),
+        dateObj.getUTCMonth(),
+        dateObj.getUTCDate(),
+        dateObj.getUTCHours(),
+        dateObj.getUTCMinutes(),
+        dateObj.getUTCSeconds()
     );
 
     const unixTime = getUnixTime(utcDate) + timezone;

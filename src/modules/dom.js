@@ -1,5 +1,5 @@
 import { format, fromUnixTime } from 'date-fns';
-import getCountryDate from './convert-date';
+import convertDate from './convert-date';
 
 const loadingAnimation = () => {
     const animation = document.querySelector('.dot-wave');
@@ -39,8 +39,7 @@ const createHourlyItem = (country, index) => {
     const tempPara = document.createElement('p');
 
     tempPara.classList.add('card-extra-temp-current');
-
-    titlePara.innerText = format(fromUnixTime(country.hourly[index].dt), 'p');
+    titlePara.innerText = format(convertDate(fromUnixTime(country.hourly[index].dt), country.timezone_offset), 'p');
     img.src = `http://openweathermap.org/img/wn/${country.hourly[index].weather[0].icon}@4x.png`;
     tempPara.innerText = `${Math.round(country.hourly[index].temp)}°`;
 
@@ -60,8 +59,7 @@ const createDailyItem = (country, day) => {
     minTempPara.classList.add('card-extra-temp-min');
 
     tempContainer.append(maxTempPara, minTempPara);
-
-    titlePara.innerText = format(fromUnixTime(day.dt), 'EEE, do');
+    titlePara.innerText = format(convertDate(fromUnixTime(day.dt), country.timezone_offset), 'EEE, do');
     img.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
     maxTempPara.innerText = `${Math.round(day.temp.max)}°`;
     minTempPara.innerText = `${Math.round(day.temp.min)}°`;
@@ -82,7 +80,7 @@ const renderMain = (country) => {
     const desc = document.querySelector('.card-desc');
     const icon = document.querySelector('.card-icon');
 
-    const countryDate = format(getCountryDate(country.timezone), 'EEEE~do MMM R~p');
+    const countryDate = format(convertDate(new Date(), country.timezone), 'EEEE~do MMM R~p');
     const [currentDay, currentDate, currentTime] = countryDate.split('~');
 
     location.innerText = `${country.name}, ${country.sys.country}`;
@@ -117,7 +115,7 @@ const renderStoredItems = (country, index) => {
 
     title.innerText = country.name;
     img.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@4x.png`;
-    time.innerText = format(getCountryDate(country.timezone), 'p');
+    time.innerText = format(convertDate(new Date(), country.timezone), 'p');
     temp.innerText = `${Math.round(country.main.temp)}°`;
 
     container.textContent = '';
