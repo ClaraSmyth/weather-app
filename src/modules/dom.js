@@ -6,6 +6,20 @@ const loadingAnimation = () => {
     animation.classList.toggle('display-none');
 };
 
+const createStoredElements = () => {
+    const title = document.createElement('p');
+    const img = document.createElement('img');
+    const time = document.createElement('p');
+    const temp = document.createElement('p');
+
+    title.classList.add('stored-item-title');
+    img.classList.add('stored-item-img');
+    time.classList.add('stored-item-time');
+    temp.classList.add('stored-item-temp');
+
+    return [title, img, time, temp];
+};
+
 const createExtraElements = () => {
     const container = document.createElement('div');
     const titlePara = document.createElement('p');
@@ -95,6 +109,19 @@ const renderExtra = (country) => {
     });
 };
 
+const renderStoredItems = (country, index) => {
+    const container = document.querySelector(`[data-stored-item-${index}]`);
+    const [title, img, time, temp] = createStoredElements();
+
+    title.innerText = country.name;
+    img.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@4x.png`;
+    time.innerText = format(getCountryDate(country.timezone), 'p');
+    temp.innerText = `${Math.round(country.main.temp)}°`;
+
+    container.textContent = '';
+    container.append(title, img, time, temp);
+};
+
 const renderError = (error) => {
     const errorDiv = document.querySelector('.card-error');
     const errorText = document.querySelector('.card-error-text');
@@ -104,4 +131,4 @@ const renderError = (error) => {
     setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
 };
 
-export { renderMain, renderExtra, renderError, loadingAnimation };
+export { renderMain, renderExtra, renderStoredItems, renderError, loadingAnimation };
