@@ -17,6 +17,7 @@
 
     --clr-bg-light: hsl(0 0% 100% / 0.5);
     --clr-bg-white: hsl(0 0% 100% / 0.8);
+    --clr-bg-solid: hsl(0 0% 100% / 1);
 
     --clr-primary-accent: hsl(265 36% 80%);
     --clr-danger: hsl(0 100% 75%);
@@ -265,8 +266,7 @@ body {
         inset: 1rem;
         display: grid;
         align-items: center;
-        background-color: var(--clr-bg-white);
-        backdrop-filter: blur(2rem);
+        background-color: var(--clr-bg-solid);
         border-radius: 1rem;
         padding: 1.5rem 1rem 1rem;
         transform: scale(0);
@@ -365,6 +365,13 @@ body {
             width: 2.25rem;
             filter: drop-shadow(0 0 5px hsl(0 0% 50% / 0.5));
         }
+    }
+}
+
+@supports (backdrop-filter: blur(2rem)) {
+    .card-extra {
+        background-color: var(--clr-bg-white);
+        backdrop-filter: blur(2rem);
     }
 }
 
