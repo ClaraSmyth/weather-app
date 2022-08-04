@@ -25,11 +25,30 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 -   JavaScript <img src="./readme-assets/javascript.svg">
 -   Webpack <img src="./readme-assets/webpack.svg">
 
+#### Other tools use
+
+-   ESLint <img src="./readme-assets/eslint.svg">
+-   Prettier <img src="./readme-assets/prettier.svg">
+
 ## Credits
+
+#### API
+
+-   [OpenWeather](https://openweathermap.org/)
+
+#### JavaScript Libraries
+
+-   [date-fns](https://date-fns.org/)
 
 #### Icons
 
 -   [Simple Icons](https://simpleicons.org/)
+-   [Google Material Icons](https://fonts.google.com/icons?icon.set=Material+Icons)
+
+#### Assets
+
+-   Background SVG from [haikei](https://app.haikei.app/)
+-   CSS Loading Animation by [@G4b413l](https://uiverse.io/profile/G4b413l) from [uiverse.io](https://uiverse.io/)
 
 ## Gallery
 
