@@ -11,10 +11,10 @@ const getStoredWeather = (units) => {
 
             const weather = await weatherResponse.json();
 
-            console.log(weather, index);
             renderStoredItems(weather, index);
         } catch (error) {
-            console.error(error.message);
+            // console.error(error.message);
+            renderError('Sorry, something went wrong!');
         }
     });
 };
@@ -46,15 +46,13 @@ const getWeather = async (input) => {
         const weather = await weatherResponse.json();
         const extra = await extraResponse.json();
 
-        console.log(extra);
-
         renderMain(weather);
         renderExtra(extra);
         loadingAnimation();
         getStoredWeather(units);
     } catch (error) {
         loadingAnimation();
-        console.error(error.message);
+        // console.error(error.message);
         if (error.message !== 'NOT FOUND') renderError('Sorry, something went wrong!');
         if (error.message === 'NOT FOUND') renderError(`Sorry, we couldn't find ${input}`);
     }
