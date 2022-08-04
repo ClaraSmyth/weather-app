@@ -1,4 +1,24 @@
 import { renderMain, renderError, renderExtra, loadingAnimation } from './dom';
+import storedLocations from './storage';
+
+const getStoredWeather = (units) => {
+    storedLocations.forEach(async (location) => {
+        try {
+            const weatherResponse = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=${units}&appid=81383e7bd599e45d7534726f6e06fab2`
+            );
+            if (!weatherResponse.ok) throw new Error(weatherResponse.statusText);
+
+            const weather = await weatherResponse.json();
+
+            console.log(weather);
+        } catch (error) {
+            console.error(error.message);
+            if (error.message !== 'NOT FOUND') renderError('Sorry, something went wrong!');
+            if (error.message === 'NOT FOUND') renderError(`Sorry, we couldn't find ${location.name}`);
+        }
+    });
+};
 
 const getWeather = async (input) => {
     try {
@@ -32,6 +52,7 @@ const getWeather = async (input) => {
         renderMain(weather);
         renderExtra(extra);
         loadingAnimation();
+        getStoredWeather(units);
     } catch (error) {
         loadingAnimation();
         console.error(error.message);
