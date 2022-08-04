@@ -80,6 +80,7 @@ body {
 
     &-container-btns {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         align-self: end;
     }
