@@ -55,6 +55,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 3rem;
+    padding: 0.5rem;
 }
 
 .card {
@@ -68,6 +70,7 @@ body {
     border-radius: 2rem;
     min-height: 15.625rem;
     max-width: 25rem;
+    width: 100%;
 
     &-container-left {
         display: grid;
@@ -92,6 +95,7 @@ body {
 
     &-location {
         font-size: var(--fs-700);
+        font-weight: var(--fw-700);
     }
 
     &-hourly-open,
@@ -326,6 +330,66 @@ body {
     }
 }
 
+.stored {
+    position: relative;
+    background-color: var(--clr-bg-light);
+    border-radius: 2rem;
+    min-height: 13.75rem;
+    max-width: 25rem;
+    width: 100%;
+    padding: 2rem 1.2rem 1.2rem;
+
+    &-header {
+        position: absolute;
+        top: 0.5rem;
+        left: 1.5rem;
+        font-size: var(--fs-700);
+        font-weight: var(--fw-700);
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 100%;
+        overflow-x: auto;
+        overflow-x: overlay;
+    }
+
+    &-item {
+        position: relative;
+        flex-shrink: 0;
+        height: max-content;
+        text-align: center;
+        padding: 0.5rem;
+        background-color: var(--clr-bg-white);
+        border-radius: 1rem;
+
+        &-title {
+            font-size: var(--fs-600);
+            font-weight: var(--fw-700);
+            margin-bottom: -1rem;
+        }
+
+        &-img {
+            width: 6.25rem;
+        }
+
+        &-time {
+            margin-top: -1rem;
+            font-weight: var(--fw-700);
+        }
+
+        &-temp {
+            position: absolute;
+            top: 2.25rem;
+            left: 0.5rem;
+            font-size: var(--fs-400);
+            font-weight: var(--fw-700);
+        }
+    }
+}
+
 /* From uiverse.io by @G4b413l */
 .dot-wave {
     --uib-size: 30px;
@@ -379,6 +443,7 @@ body {
     }
 }
 
+// Display none utility class
 .display-none {
     display: none;
 }
