@@ -41,6 +41,7 @@ const createHourlyItem = (country, index) => {
     tempPara.classList.add('card-extra-temp-current');
     titlePara.innerText = format(convertDate(fromUnixTime(country.hourly[index].dt), country.timezone_offset), 'p');
     img.src = `http://openweathermap.org/img/wn/${country.hourly[index].weather[0].icon}@4x.png`;
+    img.title = country.hourly[index].weather[0].description;
     tempPara.innerText = `${Math.round(country.hourly[index].temp)}°`;
 
     tempContainer.append(tempPara);
@@ -61,6 +62,7 @@ const createDailyItem = (country, day) => {
     tempContainer.append(maxTempPara, minTempPara);
     titlePara.innerText = format(convertDate(fromUnixTime(day.dt), country.timezone_offset), 'EEE, do');
     img.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
+    img.title = day.weather[0].description;
     maxTempPara.innerText = `${Math.round(day.temp.max)}°`;
     minTempPara.innerText = `${Math.round(day.temp.min)}°`;
 
@@ -92,6 +94,7 @@ const renderMain = (country) => {
     temp.innerText = `${Math.round(country.main.temp)}°`;
     desc.innerText = country.weather[0].description;
     icon.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@4x.png`;
+    icon.title = country.weather[0].description;
 };
 
 const renderExtra = (country) => {
@@ -115,6 +118,7 @@ const renderStoredItems = (country, index) => {
 
     title.innerText = country.name;
     img.src = `http://openweathermap.org/img/wn/${country.weather[0].icon}@4x.png`;
+    img.title = country.weather[0].description;
     time.innerText = format(convertDate(new Date(), country.timezone), 'p');
     temp.innerText = `${Math.round(country.main.temp)}°`;
 
