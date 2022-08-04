@@ -86,6 +86,8 @@ const renderMain = (country) => {
     const [currentDay, currentDate, currentTime] = countryDate.split('~');
 
     location.innerText = `${country.name}, ${country.sys.country}`;
+    location.setAttribute('data-lat', country.coord.lat);
+    location.setAttribute('data-lon', country.coord.lon);
     day.innerText = currentDay;
     date.innerText = currentDate;
     time.innerText = currentTime;

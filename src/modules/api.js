@@ -1,5 +1,5 @@
 import { renderMain, renderError, renderExtra, loadingAnimation, renderStoredItems } from './dom';
-import storedLocations from './storage';
+import { storedLocations } from './storage';
 
 const getStoredWeather = (units) => {
     storedLocations.forEach(async (location, index) => {
