@@ -25,7 +25,7 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 -   JavaScript <img src="./readme-assets/javascript.svg">
 -   Webpack <img src="./readme-assets/webpack.svg">
 
-#### Other tools use
+#### Other tools used
 
 -   ESLint <img src="./readme-assets/eslint.svg">
 -   Prettier <img src="./readme-assets/prettier.svg">
