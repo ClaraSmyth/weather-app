@@ -72,4 +72,11 @@ storageBtn.addEventListener('click', () => {
     });
 });
 
+const storedItems = document.querySelectorAll('.stored-item');
+storedItems.forEach((item) => {
+    item.addEventListener('click', () => {
+        getWeather(item.childNodes[0].innerText);
+    });
+});
+
 getWeather('London');
