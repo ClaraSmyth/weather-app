@@ -70,6 +70,7 @@ body {
     border-radius: 2rem;
     min-height: 15.625rem;
     max-width: 25rem;
+    min-width: min-content;
     width: 100%;
 
     &-container-left {
@@ -328,6 +329,18 @@ body {
             }
         }
     }
+
+    &-save {
+        position: absolute;
+        top: -0.5rem;
+        right: 1.5rem;
+        cursor: pointer;
+
+        & svg {
+            height: 2.25rem;
+            width: 2.25rem;
+        }
+    }
 }
 
 .stored {
@@ -446,6 +459,28 @@ body {
 
     50% {
         transform: translateY(-200%);
+    }
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    &-link {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        text-decoration: none;
+        color: inherit;
+        padding: 0.2rem 1rem 0;
+        border-radius: 1rem 0 0 0;
+        background-color: var(--clr-bg-white);
+
+        &:hover {
+            color: #947ab3;
+        }
     }
 }
 
