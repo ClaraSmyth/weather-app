@@ -1,6 +1,7 @@
 import { renderError } from './dom';
 
-const storedLocations = [
+const LOCAL_STORAGE_LOCATION_KEY = 'weatherapp.location';
+const storedLocations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LOCATION_KEY)) || [
     { name: 'London, GB', lat: 51.5074, lon: -0.1278 },
     { name: 'Amsterdam, NL', lat: 52.3667, lon: 4.8945 },
     { name: 'Québec, CA', lat: 46.8137, lon: -71.2084 },
@@ -25,6 +26,7 @@ const saveLocation = (name, lat, lon) => {
     const newLocation = createLocation(name, lat, lon);
     storedLocations.unshift(newLocation);
     storedLocations.pop();
+    localStorage.setItem(LOCAL_STORAGE_LOCATION_KEY, JSON.stringify(storedLocations));
     return undefined;
 };
 
