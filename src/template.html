@@ -47,9 +47,6 @@
                         <input class="card-units-checkbox" type="checkbox" />
                         <span class="card-units-slider"></span>
                     </label>
-                    <div class="card-error">
-                        <p class="card-error-text"></p>
-                    </div>
                 </div>
                 <div class="card-extra">
                     <h2 class="card-extra-header">Header</h2>
@@ -72,15 +69,19 @@
                 </div>
                 <div class="card-save">
                     <svg
+                        class="card-save-svg"
                         xmlns="http://www.w3.org/2000/svg"
                         height="24px"
                         viewBox="0 0 24 24"
                         width="24px"
-                        fill="#FFFFFF"
+                        fill="currentColor"
                     >
                         <path d="M0 0h24v24H0V0z" fill="none" />
                         <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z" />
                     </svg>
+                </div>
+                <div class="card-error">
+                    <p class="card-error-text"></p>
                 </div>
                 <div class="dot-wave display-none">
                     <div class="dot-wave__dot"></div>
@@ -102,6 +103,7 @@
                     <div class="stored-item" data-stored-item-7></div>
                 </div>
             </section>
+            <div class="modal-bg"></div>
             <footer class="footer">
                 <a class="footer-link" href="https://github.com/ClaraSmyth"
                     >Clara Smyth

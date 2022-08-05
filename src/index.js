@@ -1,4 +1,5 @@
 import getWeather from './modules/api';
+import { toggleModalBg } from './modules/dom';
 import { saveLocation } from './modules/storage';
 import './styles/styles.scss';
 
@@ -27,6 +28,8 @@ hourlyBtn.addEventListener('click', () => {
     extraCardHourly.classList.remove('display-none');
     extraCardDaily.classList.add('display-none');
     extraCard.classList.add('is-active');
+
+    toggleModalBg();
 });
 
 const dailyBtn = document.querySelector('.card-daily-open');
@@ -40,12 +43,16 @@ dailyBtn.addEventListener('click', () => {
     extraCardDaily.classList.remove('display-none');
     extraCardHourly.classList.add('display-none');
     extraCard.classList.add('is-active');
+
+    toggleModalBg();
 });
 
 const closeExtraBtn = document.querySelector('.card-extra-close');
 closeExtraBtn.addEventListener('click', () => {
     const extraCard = document.querySelector('.card-extra');
     extraCard.classList.remove('is-active');
+
+    toggleModalBg();
 });
 
 const saveBtn = document.querySelector('.card-save');

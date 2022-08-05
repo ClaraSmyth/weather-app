@@ -6,6 +6,11 @@ const loadingAnimation = () => {
     animation.classList.toggle('display-none');
 };
 
+const toggleModalBg = () => {
+    const modal = document.querySelector('.modal-bg');
+    modal.classList.toggle('is-active');
+};
+
 const createStoredElements = () => {
     const title = document.createElement('p');
     const img = document.createElement('img');
@@ -135,4 +140,4 @@ const renderError = (error) => {
     setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
 };
 
-export { renderMain, renderExtra, renderStoredItems, renderError, loadingAnimation };
+export { renderMain, renderExtra, renderStoredItems, renderError, toggleModalBg, loadingAnimation };
