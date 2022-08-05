@@ -404,7 +404,8 @@ body {
     align-items: center;
     background-color: var(--clr-bg-solid);
     border-radius: 1rem;
-    width: 100%;
+    width: calc(100% - 2em);
+    margin: 0 1rem;
     min-height: 11.75rem;
     max-width: 23rem;
     padding: 2rem 1.2rem 1.2rem;
