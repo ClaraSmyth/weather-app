@@ -402,13 +402,22 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--clr-bg-white);
-    border-radius: 2rem;
+    background-color: var(--clr-bg-solid);
+    border-radius: 1rem;
     width: 100%;
-    min-height: 13.75rem;
-    max-width: 25rem;
+    min-height: 11.75rem;
+    max-width: 23rem;
     padding: 2rem 1.2rem 1.2rem;
     visibility: collapse;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -1rem;
+        background-color: var(--clr-bg-light);
+        border-radius: 2rem;
+        z-index: -1;
+    }
 
     &.is-active {
         visibility: visible;
@@ -481,6 +490,10 @@ body {
         min-width: 100%;
         background: none;
         padding: 1rem;
+
+        &::before {
+            display: none;
+        }
 
         &-header {
             display: none;
