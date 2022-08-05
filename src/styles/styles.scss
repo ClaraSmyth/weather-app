@@ -17,10 +17,13 @@
 
     --clr-bg-light: hsl(0 0% 100% / 0.5);
     --clr-bg-white: hsl(0 0% 100% / 0.8);
-    --clr-bg-solid: hsl(0 0% 100% / 1);
+    --clr-bg-solid: hsl(264 33% 97% / 1);
+    --clr-bg-modal: hsl(0 0% 0% / 0.5);
 
     --clr-primary-accent: hsl(265 36% 80%);
     --clr-danger: hsl(0 100% 75%);
+    --clr-svg-saved: #d4e5ed;
+    --clr-svg-unsaved: hsl(0 0% 100% / 1);
 
     --shadow-primary: 0 0 5px hsl(0 0% 50% / 0.5);
     --shadow-inset: 0 0 5px hsl(0 0% 50% / 0.5) inset;
@@ -67,6 +70,7 @@ body {
     justify-content: center;
     gap: 3rem;
     padding: 2rem 0.5rem;
+    overflow: hidden;
 }
 
 .card {
@@ -148,6 +152,7 @@ body {
     }
 
     &-search {
+        flex-grow: 1;
         display: flex;
         align-items: center;
         background-color: var(--clr-bg-white);
@@ -157,11 +162,12 @@ body {
     }
 
     &-search-input {
+        flex-grow: 1;
         border: none;
         background: none;
         padding: 0 0.5rem;
-        width: 100%;
         min-width: 0;
+        width: 100%;
 
         &:focus {
             outline: none;
@@ -235,12 +241,13 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        justify-self: center;
         bottom: -2.5rem;
-        width: calc(100% - 2rem);
+        width: calc(80% - 2rem);
         height: 2rem;
         background-color: var(--clr-bg-white);
         border-radius: 100vmax;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         pointer-events: none;
         opacity: 0;
         transform: rotateX(-90deg);
@@ -268,10 +275,11 @@ body {
         align-items: center;
         background-color: var(--clr-bg-solid);
         border-radius: 1rem;
-        padding: 1.5rem 1rem 1rem;
+        padding: 1rem 1rem 1rem;
         transform: scale(0);
         transition: transform 300ms ease-in;
         box-shadow: var(--shadow-primary);
+        z-index: 200;
 
         &.is-active {
             transform: scale(1);
@@ -288,6 +296,7 @@ body {
         &-daily {
             display: flex;
             place-items: center;
+            padding-top: 0.5rem;
             gap: 1rem;
             height: 100%;
             width: 100%;
@@ -312,6 +321,7 @@ body {
             font-weight: var(--fw-700);
             width: 100%;
             margin-bottom: -1rem;
+            z-index: 1;
         }
 
         &-img {
@@ -325,6 +335,7 @@ body {
             margin-top: -1rem;
             font-size: var(--fs-400);
             font-weight: var(--fw-700);
+            z-index: 1;
 
             &-min {
                 font-size: var(--fs-300);
@@ -361,6 +372,7 @@ body {
         cursor: pointer;
 
         & svg {
+            color: var(--clr-svg-unsaved);
             height: 2.25rem;
             width: 2.25rem;
             filter: drop-shadow(0 0 5px hsl(0 0% 50% / 0.5));
@@ -368,10 +380,16 @@ body {
     }
 }
 
-@supports (backdrop-filter: blur(2rem)) {
+@media screen and (min-width: 800px) {
     .card-extra {
-        background-color: var(--clr-bg-white);
-        backdrop-filter: blur(2rem);
+        position: absolute;
+        inset: -3rem -2.5rem -3rem -2.5rem;
+
+        &-hourly,
+        &-daily {
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+        }
     }
 }
 
@@ -381,9 +399,9 @@ body {
     align-items: center;
     background-color: var(--clr-bg-white);
     border-radius: 2rem;
+    width: 100%;
     min-height: 13.75rem;
     max-width: 25rem;
-    width: 100%;
     padding: 2rem 1.2rem 1.2rem;
     visibility: collapse;
 
@@ -479,49 +497,78 @@ body {
             box-shadow: var(--shadow-primary);
 
             &:nth-of-type(1) {
-                transform: translateY(-240px);
+                transform: translateY(-15rem);
                 transition-delay: 100ms;
             }
 
             &:nth-of-type(2) {
-                transform: rotate(45deg) translateY(-300px) rotate(-45deg);
-                transition-delay: 200ms;
+                transform: rotate(45deg) translateY(-18.75rem) rotate(-45deg);
+                transition-delay: 150ms;
             }
 
             &:nth-of-type(3) {
-                transform: translateX(300px);
-                transition-delay: 300ms;
+                transform: translateX(18.75rem);
+                transition-delay: 200ms;
             }
 
             &:nth-of-type(4) {
-                transform: rotate(45deg) translateX(300px) rotate(-45deg);
-                transition-delay: 400ms;
+                transform: rotate(45deg) translateX(18.75rem) rotate(-45deg);
+                transition-delay: 250ms;
             }
 
             &:nth-of-type(5) {
-                transform: translateY(250px);
-                transition-delay: 500ms;
+                transform: translateY(15.625rem);
+                transition-delay: 300ms;
             }
 
             &:nth-of-type(6) {
-                transform: rotate(45deg) translateY(300px) rotate(-45deg);
-                transition-delay: 600ms;
+                transform: rotate(45deg) translateY(18.75rem) rotate(-45deg);
+                transition-delay: 350ms;
             }
 
             &:nth-of-type(7) {
-                transform: translateX(-300px);
-                transition-delay: 700ms;
+                transform: translateX(-18.75rem);
+                transition-delay: 400ms;
             }
 
             &:nth-of-type(8) {
-                transform: rotate(45deg) translateX(-300px) rotate(-45deg);
-                transition-delay: 800ms;
+                transform: rotate(45deg) translateX(-18.75rem) rotate(-45deg);
+                transition-delay: 450ms;
             }
 
             &.is-active {
                 visibility: visible;
                 opacity: 1;
             }
+        }
+    }
+}
+
+.modal-bg {
+    display: none;
+}
+
+@media screen and (min-width: 800px) {
+    .modal-bg {
+        display: block;
+        position: absolute;
+        inset: 0;
+        z-index: 5;
+        background-color: var(--clr-bg-modal);
+        visibility: collapse;
+        opacity: 0;
+        transition: opacity 400ms ease-in, visibility 400ms;
+
+        &.is-active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @supports (backdrop-filter: blur(0.8rem)) {
+        .modal-bg {
+            background-color: transparent;
+            backdrop-filter: blur(0.8rem);
         }
     }
 }
