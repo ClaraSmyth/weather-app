@@ -22,8 +22,7 @@
 
     --clr-primary-accent: hsl(265 36% 80%);
     --clr-danger: hsl(0 100% 75%);
-    --clr-svg-saved: #d4e5ed;
-    --clr-svg-unsaved: hsl(0 0% 100% / 1);
+    --clr-bookmark: hsl(0 0% 100% / 1);
 
     --shadow-primary: 0 0 5px hsl(0 0% 50% / 0.5);
     --shadow-inset: 0 0 5px hsl(0 0% 50% / 0.5) inset;
@@ -331,6 +330,7 @@ body {
         &-temp {
             display: flex;
             justify-content: space-around;
+            align-items: flex-end;
             width: 100%;
             margin-top: -1rem;
             font-size: var(--fs-400);
@@ -372,10 +372,15 @@ body {
         cursor: pointer;
 
         & svg {
-            color: var(--clr-svg-unsaved);
+            color: var(--clr-bookmark);
             height: 2.25rem;
             width: 2.25rem;
+            transition: color 500ms ease-in;
             filter: drop-shadow(0 0 5px hsl(0 0% 50% / 0.5));
+
+            &.is-active {
+                color: var(--clr-danger);
+            }
         }
     }
 }

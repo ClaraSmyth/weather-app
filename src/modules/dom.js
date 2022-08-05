@@ -6,6 +6,12 @@ const loadingAnimation = () => {
     animation.classList.toggle('display-none');
 };
 
+const animateBookmark = () => {
+    const bookmark = document.querySelector('.card-save-svg');
+    bookmark.classList.add('is-active');
+    setTimeout(() => bookmark.classList.remove('is-active'), 500);
+};
+
 const toggleModalBg = () => {
     const modal = document.querySelector('.modal-bg');
     modal.classList.toggle('is-active');
@@ -140,4 +146,4 @@ const renderError = (error) => {
     setTimeout(() => errorDiv.classList.remove('is-active'), 3000);
 };
 
-export { renderMain, renderExtra, renderStoredItems, renderError, toggleModalBg, loadingAnimation };
+export { renderMain, renderExtra, renderStoredItems, renderError, toggleModalBg, loadingAnimation, animateBookmark };

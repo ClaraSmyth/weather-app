@@ -1,4 +1,4 @@
-import { renderError } from './dom';
+import { renderError, animateBookmark } from './dom';
 
 const LOCAL_STORAGE_LOCATION_KEY = 'weatherapp.location';
 const storedLocations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LOCATION_KEY)) || [
@@ -16,12 +16,19 @@ const createLocation = (name, lat, lon) => {
     return { name, lat, lon };
 };
 
-const saveLocation = (name, lat, lon) => {
-    const exists = storedLocations.some((obj) => {
+const checkStorage = (name) => {
+    return storedLocations.some((obj) => {
         return obj.name === name;
     });
+};
 
-    if (exists) return renderError(`Already saved ${name}`);
+const saveLocation = (name, lat, lon) => {
+    const exists = checkStorage(name);
+
+    if (exists) {
+        animateBookmark(exists);
+        return renderError(`Already saved ${name}`);
+    }
 
     const newLocation = createLocation(name, lat, lon);
     storedLocations.unshift(newLocation);
@@ -30,4 +37,4 @@ const saveLocation = (name, lat, lon) => {
     return undefined;
 };
 
-export { storedLocations, saveLocation };
+export { storedLocations, checkStorage, saveLocation };
