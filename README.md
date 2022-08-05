@@ -7,10 +7,10 @@
 		<img src="https://img.shields.io/static/v1?label=&message=Webpack&color=8DD6F9&style=for-the-badge&logo=webpack&logoColor=black&logoWidth=&labelColor=&link=">
 		<br>
 	</h1>
-	<h3><b><a href="#">View Live Demo</a></b></h3>
+	<h3><b><a href="https://clarasmyth.github.io/weather-app/">View Live Demo</a></b></h3>
 </div>
 
-![Gif of Project](#)
+![Gif of Project](./readme-assets/Images/Weather-App.gif)
 
 ## Description
 
@@ -52,18 +52,38 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 
 ## Gallery
 
-#### Home page
+### Desktop
 
-![Image of Project](#)
+#### Home Page
 
-#### Menu page
+![Image of Project](./readme-assets/Images/Desktop-Home.png)
 
-![Image of Project](#)
+#### Saved View
 
-#### Contact page
+![Image of Project](./readme-assets/Images/Desktop-Saved.png)
 
-![Image of Project](#)
+#### Hourly View
 
-#### Mobile view
+![Image of Project](./readme-assets/Images/Desktop-Hourly.png)
 
-![Image of Project](#)
+#### Daily View
+
+![Image of Project](./readme-assets/Images/Desktop-Daily.png)
+
+### Mobile
+
+#### Home Page
+
+![Image of Project](./readme-assets/Images/Mobile-Home.png)
+
+#### Saved View
+
+![Image of Project](./readme-assets/Images/Mobile-Saved.png)
+
+#### Hourly View
+
+![Image of Project](./readme-assets/ImagesMobile-Hourly.png)
+
+#### Daily View
+
+![Image of Project](./readme-assets/Images/Mobile-Daily.png)
