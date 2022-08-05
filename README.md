@@ -70,20 +70,6 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 
 ![Image of Project](./readme-assets/Images/Desktop-Daily.png)
 
-### Mobile
+#### Mobile View
 
-#### Home Page
-
-![Image of Project](./readme-assets/Images/Mobile-Home.png)
-
-#### Saved View
-
-![Image of Project](./readme-assets/Images/Mobile-Saved.png)
-
-#### Hourly View
-
-![Image of Project](./readme-assets/ImagesMobile-Hourly.png)
-
-#### Daily View
-
-![Image of Project](./readme-assets/Images/Mobile-Daily.png)
+![Image of Project](./readme-assets/Images/Mobile-View.png)
