@@ -1,6 +1,6 @@
 import getWeather from './modules/api';
 import { toggleModalBg } from './modules/dom';
-import { saveLocation } from './modules/storage';
+import { lastSearched, saveLocation } from './modules/storage';
 import './styles/styles.scss';
 
 const form = document.querySelector('.card-search');
@@ -86,4 +86,4 @@ storedItems.forEach((item) => {
     });
 });
 
-getWeather('London');
+getWeather(lastSearched);

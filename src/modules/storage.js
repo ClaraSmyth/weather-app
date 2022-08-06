@@ -12,6 +12,14 @@ const storedLocations = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LOCATION_K
     { name: 'Moscow, RU', lat: 55.754, lon: 37.6204 },
 ];
 
+const LOCAL_STORAGE_LASTSEARCHED_KEY = 'weatherapp.lastSearched';
+const lastSearched = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LASTSEARCHED_KEY)) || ['London'];
+
+const updateLastSearched = (name) => {
+    lastSearched.splice(0, 1, name);
+    localStorage.setItem(LOCAL_STORAGE_LASTSEARCHED_KEY, JSON.stringify(lastSearched));
+};
+
 const createLocation = (name, lat, lon) => {
     return { name, lat, lon };
 };
@@ -37,4 +45,4 @@ const saveLocation = (name, lat, lon) => {
     return undefined;
 };
 
-export { storedLocations, checkStorage, saveLocation };
+export { storedLocations, lastSearched, updateLastSearched, checkStorage, saveLocation };
