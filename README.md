@@ -50,6 +50,10 @@ To see the assignment details - [Click Here](https://www.theodinproject.com/less
 -   Background SVG from [haikei](https://app.haikei.app/)
 -   CSS Loading Animation by [@G4b413l](https://uiverse.io/profile/G4b413l) from [uiverse.io](https://uiverse.io/)
 
+#### Favicon
+
+-   [favicon.io](https://favicon.io/)
+
 ## Gallery
 
 ### Desktop
